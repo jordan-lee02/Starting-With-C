@@ -5,8 +5,10 @@ int main(){
     // switch = A more efficient alternative to using many "else if" statements
     //          allows a value to be tested for equality against many cases
 
+    //delcare variables
     char grade;
 
+    //asks the user for an input and is then stored as variable 'grade'
     printf("\nPlease enter a Letter Grade: ");
     scanf("%c", &grade);
 
@@ -26,7 +28,7 @@ int main(){
         case 'F':
             printf("YOU FAILED!!!\n");
             break;
-        default:
+        default: //all other inputs would have this output
             printf("Please enter only valid Letter Grades!");
             break;
     }
