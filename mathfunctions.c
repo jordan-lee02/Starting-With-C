@@ -10,9 +10,9 @@ int main(){
     int E = floor(3.99); //round down function
     double F = fabs(-100); //aboslute value function e.g. makes negative numbers positive
     double G = log(3); //logarthim function
-    double H = sin(45);
-    double I = cos(45);
-    double J = tan(45);
+    double H = sin(45); //sine function
+    double I = cos(45); //cosine function
+    double J = tan(45); //tangent function
 
     printf("\n%lf", J);
 
