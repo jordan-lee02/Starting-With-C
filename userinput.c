@@ -10,7 +10,7 @@ int main(){
     //asks the user for their name and stores the variable as a character array called name
     printf("\nWhat's your name?");
     //scanf("%s", &name);       //the scanf function will read up to any 'white space'
-    fgets(name, 25, stdin);     //
+    fgets(name, 25, stdin);     // allows you to read after 'white space'  - stdin - standard input
     name[strlen(name)-1] = '\0';
 
 
