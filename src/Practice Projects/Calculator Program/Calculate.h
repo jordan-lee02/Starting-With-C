@@ -1,8 +1,4 @@
+#include "Calculate.c"
 
 
-void splash(){
-
-    printf("This is a test!\n");
-
-
-}
+void splash();
