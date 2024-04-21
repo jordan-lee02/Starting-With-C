@@ -1,12 +1,13 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+//#include <stdlib.h>
+//#include <time.h>
+//#include <unistd.h>
 
 #include "Calculate.h"
 
 int main(){
 
-    splash();
+    startcalculator();
 
     return 0;
 }

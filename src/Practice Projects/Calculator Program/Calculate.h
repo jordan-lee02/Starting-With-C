@@ -1,4 +1,4 @@
 #include "Calculate.c"
 
 
-void splash();
+void startcalculator();

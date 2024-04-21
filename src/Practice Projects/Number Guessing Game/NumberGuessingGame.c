@@ -73,7 +73,7 @@ void restart(){
             break;
         }
         else{
-            printf("\nPlease enter either Y/N !!!");
+            printf("\nPlease enter either Y/N !!!\n");
         }
     }
     if(retry){
