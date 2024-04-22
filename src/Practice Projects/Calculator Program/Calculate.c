@@ -5,13 +5,14 @@
 #include <math.h>
 #include <stdbool.h>
 
-
+//function prototypes
 static void calculate(char[]);
 static double runcalop(double, double, char[]);
 static void restart();
 static void calhome();
 
 
+//start function to display welcome message and proceed with calling the main part of the calculator
 void startcalculator(){
 
     //start up welcome message
@@ -26,6 +27,8 @@ void startcalculator(){
 
 }
 
+
+//this function displays what the user can do in the program and gets the user's input and stores as a string named calculation and proceeds to the next function which splits the input
 static void calhome(){
     //delcare calculation variable to store user input
     char calculation[20] = "";
@@ -44,6 +47,7 @@ static void calhome(){
 
 }
 
+//This then allows the saved user input under the string calculation to be split into 3 parts in order for the program to then complete the user's intended operation
 static void calculate(char calculation[20]){
     
     char num1[10];
@@ -91,9 +95,10 @@ static void calculate(char calculation[20]){
   
 }
 
+//This will then decide based on the user's input which arithmetic operator they chose and will perform that calculation and store under the double variable answer.
 static double runcalop(double num1, double num2, char operation[10]){
     double answer;
-    //printf("I made it to the last function!!!");
+
     switch (operation[0]){
         case '+':
         //printf("\nAddition!\n");
@@ -127,6 +132,9 @@ static double runcalop(double num1, double num2, char operation[10]){
 
     return answer;
 }
+
+
+//this function then checks if the user would like to continue to use the calculation and if that is true, this will call the calhome function to allow for the user to enter another equation
 static void restart(){
     char choice[2];
     bool startover = false;
