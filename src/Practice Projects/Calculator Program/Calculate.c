@@ -161,7 +161,7 @@ static void restart(){
         calhome();
     }
     else{
-        printf("Thankyou for using the calculator\nHave a nice day :)");
+        printf("Thank you for using the calculator\nHave a nice day :)");
         sleep(1);
         printf("\nGoodbye.");
     }
