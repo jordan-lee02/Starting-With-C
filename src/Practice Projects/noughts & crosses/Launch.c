@@ -22,10 +22,30 @@ int main(){
     char winner = ' ';
     char response;
 
+    system("cls");
     do{
         winner = ' ';
         response = ' ';
         resetBoard();
+        system("cls");
+        Sleep(1000);
+        printf("================\n");
+        printf("|TicTacToe V1.0|\n");
+        printf("================\n");
+        Sleep(1000);
+        int j = 3;
+        do{
+            system("cls");
+            printf("\nGAME IS STARTING IN %d!", j);
+            j--;
+            Sleep(1000);
+            if(j == 0){
+                system("cls");
+                printf("GO!");
+                Sleep(1000);
+                system("cls");
+            }
+        }while(j != 0);
 
         while(winner == ' ' && checkFreeSpaces() != 0){
 
@@ -52,6 +72,9 @@ int main(){
 
     printBoard();
     printWinner(winner);
+    Sleep(250);
+    system("cls");
+    
 
     printf("Would you like to play again? (Y/N): ");
     scanf("%*c");
@@ -125,12 +148,14 @@ void playerMove(){
 
     do{
  
+        Sleep(250);
         printf("Enter Row #(1-3): ");
         scanf("%d", &x);
         x--;
 
         printf("Enter Column #(1-3): ");
         scanf("%d", &y);
+        system("cls");
         y--;
 
         if(board[x][y] != ' '){
