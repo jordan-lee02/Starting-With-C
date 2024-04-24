@@ -4,11 +4,23 @@
 #include <time.h>
 #include <windows.h>
 
+#define ANSI_COLOR_RED     "\x1b[31m"
+#define ANSI_COLOR_GREEN   "\x1b[32m"
+#define ANSI_COLOR_YELLOW  "\x1b[33m"
+#define ANSI_COLOR_BLUE    "\x1b[34m"
+#define ANSI_COLOR_MAGENTA "\x1b[35m"
+#define ANSI_COLOR_CYAN    "\x1b[36m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
+
+
+
 char board[3][3];
 const char PLAYER = 'X';
 const char COMPUTER = 'O';
+char playerindicator = ' ';
+char computerindicator = ' ';
 
-
+void gameTitle();
 void resetBoard();
 void printBoard();
 int checkFreeSpaces();
@@ -29,9 +41,7 @@ void gameRun(){
         resetBoard();
         system("cls");
         Sleep(1000);
-        printf("================\n");
-        printf("|TicTacToe V1.0|\n");
-        printf("================\n");
+        gameTitle();
         Sleep(1000);
         int j = 3;
         do{
@@ -49,6 +59,7 @@ void gameRun(){
 
         while(winner == ' ' && checkFreeSpaces() != 0){
 
+        playerindicator = '*';
         printBoard();
 
         playerMove();
@@ -58,7 +69,9 @@ void gameRun(){
             break;
 
         }
-
+        
+        computerindicator = '*';
+        printBoard();
         computerMove();
         winner = checkWinner();
         if(winner != ' ' || checkFreeSpaces() == 0){
@@ -87,6 +100,14 @@ void gameRun(){
 
 }
 
+void gameTitle(){
+
+    printf("================\n");
+    printf("|"ANSI_COLOR_MAGENTA"TicTacToe V1.0"ANSI_COLOR_RESET"|\n");
+    printf("================\n");
+
+}
+
 
 void resetBoard(){
 
@@ -108,11 +129,15 @@ void resetBoard(){
 
 void printBoard(){
 
-    printf(" %c | %c | %c ", board[0][0], board[0][1], board[0][2]);
-    printf("\n---|---|---\n");
-    printf(" %c | %c | %c ", board[1][0], board[1][1], board[1][2]);
-    printf("\n---|---|---\n");
-    printf(" %c | %c | %c ", board[2][0], board[2][1], board[2][2]);
+    gameTitle();
+    printf("PLAYER1: %c\n", playerindicator);
+    printf("COMPUTER: %c\n", computerindicator);
+    printf("\n   1   2   3 \n");
+    printf("1  %c | %c | %c ", board[0][0], board[0][1], board[0][2]);
+    printf("\n  ---|---|---\n");
+    printf("2  %c | %c | %c ", board[1][0], board[1][1], board[1][2]);
+    printf("\n  ---|---|---\n");
+    printf("3  %c | %c | %c ", board[2][0], board[2][1], board[2][2]);
     printf("\n");
     
 
@@ -164,6 +189,7 @@ void playerMove(){
         }
         else{
             board[x][y]  =PLAYER;
+            playerindicator = ' ';
             break;
         }
     }while(board[x][y] != ' ');
@@ -175,8 +201,10 @@ void computerMove(){
 
     //creates a seed based on current time
     srand(time(0));
+
     int x;
     int y;
+    computerindicator = '*';
 
     if(checkFreeSpaces() > 0 ){
 
@@ -187,7 +215,9 @@ void computerMove(){
 
         } while(board[x][y] != ' ');
 
+        Sleep(2500);
         board [x][y] = COMPUTER;
+        computerindicator = ' ';
 
     }
     else{
