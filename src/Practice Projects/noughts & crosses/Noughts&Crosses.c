@@ -34,6 +34,7 @@ void printWinner(char);
 void playerIndicatorColour(int, int);
 void pDesignator();
 void cDesignator();
+void runPIC();
 
 
 void gameRun(){
@@ -146,69 +147,36 @@ void printBoard(){
     printf(ANSI_COLOR_GREEN);
     printf("COMPUTER: ");
     cDesignator();
-    
+
     //row 1 display
     printf(ANSI_COLOR_RESET);
     printf("\n   1   2   3 \n");
     printf("1  ");
-    playerIndicatorColour(r , c);
-    printf("%c", board[0][0]);
-    printf(ANSI_COLOR_RESET);
-    c++;
-    printf(" | ");
-    playerIndicatorColour(r , c);
-    printf("%c", board[0][1]);
-    printf(ANSI_COLOR_RESET);
-    c++;
-    printf(" | ");
-    playerIndicatorColour(r , c);
-    printf("%c ", board[0][2]);
-    printf(ANSI_COLOR_RESET);
+    runPIC();
+
 
     //row 2 display
     r = 1;
     c = 0;
     printf("\n  ---|---|---\n");
     printf("2  ");
-    playerIndicatorColour(r , c);
-    printf("%c", board[1][0]);
-    printf(ANSI_COLOR_RESET);
-    c++;
-    printf(" | ");
-    playerIndicatorColour(r , c);
-    printf("%c",board[1][1]);
-    printf(ANSI_COLOR_RESET);
-    c++;
-    printf(" | ");
-    playerIndicatorColour(r , c);
-    printf("%c ", board[1][2]);
-    printf(ANSI_COLOR_RESET);
+    runPIC();
     
     //row 3 display
     r = 2;
     c = 0;
     printf("\n  ---|---|---\n");
     printf("3  ");
-    playerIndicatorColour(r , c);
-    printf("%c", board[2][0]);
-    printf(ANSI_COLOR_RESET);
-    c++;
-    printf(" | ");
-    playerIndicatorColour(r , c);
-    printf("%c", board[2][1]);
-    printf(ANSI_COLOR_RESET);
-    c++;
-    printf(" | ");
-    playerIndicatorColour(r , c);
-    printf("%c ", board[2][2]);
-    printf(ANSI_COLOR_RESET);
+    runPIC();
 
     printf("\n");
-    
 
+}
+void runPIC(){
 
-
-
+    for(int i = 0 ; i < 3; i++){
+        playerIndicatorColour(r , c);
+    }
 }
 void pDesignator(){
     printf(ANSI_COLOR_YELLOW"%c\n", playerindicator);
@@ -369,13 +337,34 @@ void printWinner(char winner){
 
 }
 void playerIndicatorColour(int i, int j){
+    
+    c = j;
 
-            if (board[i][j] == 'O'){
-                printf(ANSI_COLOR_GREEN);
+    if (board[i][j] == 'O'){
+        printf(ANSI_COLOR_GREEN);
+        printf("%c", board[i][j]);
+        printf(ANSI_COLOR_RESET);
+        c++;
+        if(j == 0 || j == 1){
+            printf(" | ");
+        }
 
-            }
-            else if(board[i][j] == 'X'){
-                printf(ANSI_COLOR_RED);
-            }
+        }
+    else if(board[i][j] == 'X'){
+        printf(ANSI_COLOR_RED);
+        printf("%c", board[i][j]);
+        printf(ANSI_COLOR_RESET);
+        c++;
+        if(j == 0 || j == 1){
+            printf(" | ");
+        }
+    }
+    else{
+        printf("%c", board[i][j]);
+        c++;
+        if(j == 0 || j == 1){
+            printf(" | ");
+        }
+    }
 
 }
