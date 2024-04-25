@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <time.h>
 #include <windows.h>
+#include <stdbool.h>
 
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
@@ -19,6 +20,8 @@ const char PLAYER = 'X';
 const char COMPUTER = 'O';
 char playerindicator = ' ';
 char computerindicator = ' ';
+int r;
+int c;
 
 void gameTitle();
 void resetBoard();
@@ -28,6 +31,11 @@ void playerMove();
 void computerMove();
 char checkWinner();
 void printWinner(char);
+void playerIndicatorColour(int, int);
+void pDesignator();
+void cDesignator();
+void runPIC();
+
 
 void gameRun(){
 
@@ -69,7 +77,7 @@ void gameRun(){
             break;
 
         }
-        
+        system("cls");
         computerindicator = '*';
         printBoard();
         computerMove();
@@ -127,23 +135,54 @@ void resetBoard(){
 }
 
 
-void printBoard(){
+void printBoard(){    
 
+    r = 0;
+    c = 0;
+    //displays title along with player and computer with a designator of who's move it is currently
     gameTitle();
-    printf("PLAYER1: %c\n", playerindicator);
-    printf("COMPUTER: %c\n", computerindicator);
+    printf(ANSI_COLOR_RED);
+    printf("PLAYER1: ");
+    pDesignator();
+    printf(ANSI_COLOR_GREEN);
+    printf("COMPUTER: ");
+    cDesignator();
+
+    //row 1 display
+    printf(ANSI_COLOR_RESET);
     printf("\n   1   2   3 \n");
-    printf("1  %c | %c | %c ", board[0][0], board[0][1], board[0][2]);
+    printf("1  ");
+    runPIC();
+
+
+    //row 2 display
+    r = 1;
+    c = 0;
     printf("\n  ---|---|---\n");
-    printf("2  %c | %c | %c ", board[1][0], board[1][1], board[1][2]);
-    printf("\n  ---|---|---\n");
-    printf("3  %c | %c | %c ", board[2][0], board[2][1], board[2][2]);
-    printf("\n");
+    printf("2  ");
+    runPIC();
     
+    //row 3 display
+    r = 2;
+    c = 0;
+    printf("\n  ---|---|---\n");
+    printf("3  ");
+    runPIC();
 
+    printf("\n");
 
+}
+void runPIC(){
 
-
+    for(int i = 0 ; i < 3; i++){
+        playerIndicatorColour(r , c);
+    }
+}
+void pDesignator(){
+    printf(ANSI_COLOR_YELLOW"%c\n", playerindicator);
+}
+void cDesignator(){
+    printf(ANSI_COLOR_YELLOW"%c\n", computerindicator);
 }
 int checkFreeSpaces(){
 
@@ -187,6 +226,10 @@ void playerMove(){
         if(board[x][y] != ' '){
             printBoard();
             printf("Invalid Move\n");
+            Sleep(500);
+            system("cls");
+            printBoard();
+            
 
         }
         else{
@@ -217,7 +260,8 @@ void computerMove(){
 
         } while(board[x][y] != ' ');
 
-        Sleep(2500);
+        printf("COMPUTER IS CHOOSING\n");
+        Sleep(1250);
         board [x][y] = COMPUTER;
         computerindicator = ' ';
 
@@ -274,18 +318,53 @@ void printWinner(char winner){
     if(winner == PLAYER){
 
         printf("YOU WIN!!\n");
+        Sleep(1000);
     }
     else if(winner == COMPUTER){
 
         printf("YOU LOSE!\n");
+        Sleep(1000);
     }
     else{
 
         printf("IT'S A TIE!\n");
+        Sleep(1000);
     }
 
 
 
 
+
+}
+void playerIndicatorColour(int i, int j){
+    
+    c = j;
+
+    if (board[i][j] == 'O'){
+        printf(ANSI_COLOR_GREEN);
+        printf("%c", board[i][j]);
+        printf(ANSI_COLOR_RESET);
+        c++;
+        if(j == 0 || j == 1){
+            printf(" | ");
+        }
+
+        }
+    else if(board[i][j] == 'X'){
+        printf(ANSI_COLOR_RED);
+        printf("%c", board[i][j]);
+        printf(ANSI_COLOR_RESET);
+        c++;
+        if(j == 0 || j == 1){
+            printf(" | ");
+        }
+    }
+    else{
+        printf("%c", board[i][j]);
+        c++;
+        if(j == 0 || j == 1){
+            printf(" | ");
+        }
+    }
 
 }
