@@ -173,14 +173,16 @@ void playerMove(){
     do{
  
         Sleep(250);
-        printf("Enter Row #(1-3): ");
-        scanf("%d", &x);
-        x--;
 
         printf("Enter Column #(1-3): ");
         scanf("%d", &y);
-        system("cls");
+        
         y--;
+
+        printf("Enter Row #(1-3): ");
+        scanf("%d", &x);
+        system("cls");
+        x--;
 
         if(board[x][y] != ' '){
             printBoard();
