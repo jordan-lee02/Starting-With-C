@@ -263,6 +263,7 @@ void computerMove(){
 
         printf("COMPUTER IS CHOOSING\n");
         Sleep(1250);
+        system("cls");
         board [x][y] = COMPUTER;
         computerindicator = ' ';
 
