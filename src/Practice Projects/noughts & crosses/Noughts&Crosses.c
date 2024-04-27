@@ -1,3 +1,4 @@
+//This includes all header files that need to be called upon for certain functions to work in the code
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -5,6 +6,7 @@
 #include <windows.h>
 #include <stdbool.h>
 
+//This allows for the use of colours inside the terminal
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
 #define ANSI_COLOR_YELLOW  "\x1b[33m"
@@ -14,7 +16,7 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 
-
+//Declaring global variables.
 char board[3][3];
 const char PLAYER = 'X';
 const char COMPUTER = 'O';
@@ -23,6 +25,8 @@ char computerindicator = ' ';
 int r;
 int c;
 
+
+//Function prototypes declared here to avoid errors or warnings appearing when running the code
 void gameTitle();
 void resetBoard();
 void printBoard();
@@ -36,22 +40,32 @@ void pDesignator();
 void cDesignator();
 void runPIC();
 
-
+//This is the main function of the game where all other functions are called originally from to play noughts & crosses
 void gameRun(){
 
+    //Declaring variables
     char winner = ' ';
     char response;
 
+    //This allows for the game's output to be more immersive and less cluttered by clearing the terminal
     system("cls");
+
+    //This outer do while loop allows for the code to run dependent on the user input of 'y' to play again
     do{
+        //Resets the game back to default starting settings and clears console
         winner = ' ';
         response = ' ';
         resetBoard();
         system("cls");
+        //Made use of the Sleep function from 'windows.h' to allow the program to slow down in places to help add to the immersion
         Sleep(1000);
+
+        //This calls a function to display the game's title
         gameTitle();
         Sleep(1000);
         int j = 3;
+
+        //This loop is a countdown made for the start of the game and will continue to run until j is equal to 0
         do{
             system("cls");
             printf("\nGAME IS STARTING IN %d!", j);
@@ -65,13 +79,21 @@ void gameRun(){
             }
         }while(j != 0);
 
+
+        //While loop allows for a function to display the board to be called along with allowing for the player to take their respective turn
+        //This will repeat until both the variable 'winner and the function 'checkFreeSpaces' return 0. 
         while(winner == ' ' && checkFreeSpaces() != 0){
-
+        
+        //this assigns an asterix to playerindicator to then be displayed when the board updates to signify who's current turn it is.
         playerindicator = '*';
-        printBoard();
 
+        printBoard();
         playerMove();
+        
+        //assigning the returned value of the called function 'check Winner' to the character variable 'winner'
         winner = checkWinner();
+
+        //this if statement checks if the number of available spaces left on the board is zero and then it will break out of the statement, stopping any further turns from the user or computer
         if(winner != ' ' || checkFreeSpaces() == 0){
 
             break;
@@ -81,6 +103,7 @@ void gameRun(){
         computerindicator = '*';
         printBoard();
         computerMove();
+        //checking for a winner after the move function for the computer has been called
         winner = checkWinner();
         if(winner != ' ' || checkFreeSpaces() == 0){
 
@@ -93,13 +116,11 @@ void gameRun(){
 
     printBoard();
     printWinner(winner);
-    Sleep(250);
-    system("cls");
-    
+    Sleep(250);   
 
-    printf("Would you like to play again? (Y/N): ");
+    //asks the user if they would like to play again, converts the user input to capitals to prevent errors occuring
+    printf("\nWould you like to play again? (Y/N): ");
     scanf("%*c");
-    //getchar();
     scanf("%c", &response);
     response = toupper(response);
     } while (response == 'Y');
@@ -320,17 +341,17 @@ void printWinner(char winner){
     if(winner == PLAYER){
 
         printf("YOU WIN!!\n");
-        Sleep(1000);
+        Sleep(250);
     }
     else if(winner == COMPUTER){
 
         printf("YOU LOSE!\n");
-        Sleep(1000);
+        Sleep(250);
     }
     else{
 
         printf("IT'S A TIE!\n");
-        Sleep(1000);
+        Sleep(250);
     }
 
 
