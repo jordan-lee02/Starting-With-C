@@ -208,6 +208,7 @@ void playerMove(){
 
     int x;
     int y;
+    
 
     do{
  
