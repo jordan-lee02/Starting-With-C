@@ -119,6 +119,7 @@ void gameRun(){
     Sleep(250);   
 
     //asks the user if they would like to play again, converts the user input to capitals to prevent errors occuring
+
     printf("\nWould you like to play again? (Y/N): ");
     scanf("%*c");
     scanf("%c", &response);
@@ -131,9 +132,9 @@ void gameRun(){
 
 void gameTitle(){
 
-    printf("================\n");
-    printf("|"ANSI_COLOR_MAGENTA"TicTacToe V1.0"ANSI_COLOR_RESET"|\n");
-    printf("================\n");
+    printf("========================\n");
+    printf("|"ANSI_COLOR_MAGENTA"NOUGHTS & CROSSES V1.0"ANSI_COLOR_RESET"|\n");
+    printf("========================\n");
 
 }
 
