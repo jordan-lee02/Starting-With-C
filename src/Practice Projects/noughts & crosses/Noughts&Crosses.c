@@ -39,6 +39,7 @@ void playerIndicatorColour(int, int);
 void pDesignator();
 void cDesignator();
 void runPIC();
+char replay(char);
 
 //This is the main function of the game where all other functions are called originally from to play noughts & crosses
 void gameRun(){
@@ -79,7 +80,6 @@ void gameRun(){
             }
         }while(j != 0);
 
-
         //While loop allows for a function to display the board to be called along with allowing for the player to take their respective turn
         //This will repeat until both the variable 'winner and the function 'checkFreeSpaces' return 0. 
         while(winner == ' ' && checkFreeSpaces() != 0){
@@ -110,8 +110,6 @@ void gameRun(){
             break;
 
         }
-
-
     }
 
     printBoard();
@@ -120,14 +118,28 @@ void gameRun(){
 
     //asks the user if they would like to play again, converts the user input to capitals to prevent errors occuring
 
-    printf("\nWould you like to play again? (Y/N): ");
-    scanf("%*c");
-    scanf("%c", &response);
-    response = toupper(response);
+    response = replay(response);
+    
     } while (response == 'Y');
 
     printf("Thanks for playing!");
+}
 
+char replay(char response){
+    bool validinput = false;
+    while(validinput == false){
+        printf("\nWould you like to play again? (Y/N): ");
+        scanf("%*c");
+        scanf("%c", &response);
+        response = toupper(response);
+        if(response == 'Y' || response == 'N'){
+            validinput = true;
+            }
+        else{
+            printf("PLEASE ENTER EITHER Y/N!!!");
+        }
+            }
+    return response;
 }
 
 void gameTitle(){
@@ -137,7 +149,6 @@ void gameTitle(){
     printf("========================\n");
 
 }
-
 
 void resetBoard(){
 
@@ -150,12 +161,7 @@ void resetBoard(){
         }
 
     }
-
-
-
-
 }
-
 
 void printBoard(){    
 
@@ -192,7 +198,6 @@ void printBoard(){
     runPIC();
 
     printf("\n");
-
 }
 void runPIC(){
 
@@ -216,15 +221,9 @@ int checkFreeSpaces(){
 
                 freeSpaces--; 
             }
-        
-        
         }
-
     }
     return freeSpaces;
-
-
-
 }
 void playerMove(){
 
@@ -233,7 +232,7 @@ void playerMove(){
     
 
     do{
- 
+
         Sleep(250);
 
         printf("Enter Column #(1-3): ");
@@ -261,9 +260,6 @@ void playerMove(){
             break;
         }
     }while(board[x][y] != ' ');
-
-
-
 }
 void computerMove(){
 
@@ -288,16 +284,11 @@ void computerMove(){
         system("cls");
         board [x][y] = COMPUTER;
         computerindicator = ' ';
-
     }
     else{
 
         printWinner(' ');
     }
-
-
-
-
 }
 char checkWinner(){
 
@@ -332,10 +323,6 @@ char checkWinner(){
     }
 
     return ' ';
-
-
-
-
 }
 void printWinner(char winner){
 
@@ -354,11 +341,6 @@ void printWinner(char winner){
         printf("IT'S A TIE!\n");
         Sleep(250);
     }
-
-
-
-
-
 }
 void playerIndicatorColour(int i, int j){
     
@@ -390,5 +372,4 @@ void playerIndicatorColour(int i, int j){
             printf(" | ");
         }
     }
-
 }
