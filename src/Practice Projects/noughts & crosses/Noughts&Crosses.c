@@ -5,6 +5,8 @@
 #include <time.h>
 #include <windows.h>
 #include <stdbool.h>
+#include <string.h>
+
 
 //This allows for the use of colours inside the terminal
 #define ANSI_COLOR_RED     "\x1b[31m"
@@ -18,12 +20,15 @@
 
 //Declaring global variables.
 char board[3][3];
-const char PLAYER = 'X';
-const char COMPUTER = 'O';
+// const char PLAYER = 'X';
+// const char COMPUTER = 'O';
+char PLAYER = ' ';
+char COMPUTER = ' ';
 char playerindicator = ' ';
 char computerindicator = ' ';
 int r;
 int c;
+bool computerStart = false;
 
 
 //Function prototypes declared here to avoid errors or warnings appearing when running the code
@@ -36,10 +41,14 @@ void computerMove();
 char checkWinner();
 void printWinner(char);
 void playerIndicatorColour(int, int);
+void playercolour();
+void computercolour();
 void pDesignator();
 void cDesignator();
 void runPIC();
 char replay(char);
+void playersidechoice();
+char headsOrTails();
 
 //This is the main function of the game where all other functions are called originally from to play noughts & crosses
 void gameRun(){
@@ -48,6 +57,7 @@ void gameRun(){
     char winner = ' ';
     char response;
 
+    //Sleep(1000000);
     //This allows for the game's output to be more immersive and less cluttered by clearing the terminal
     system("cls");
 
@@ -65,6 +75,7 @@ void gameRun(){
         gameTitle();
         Sleep(1000);
         int j = 3;
+        playersidechoice();
 
         //This loop is a countdown made for the start of the game and will continue to run until j is equal to 0
         do{
@@ -85,10 +96,13 @@ void gameRun(){
         while(winner == ' ' && checkFreeSpaces() != 0){
         
         //this assigns an asterix to playerindicator to then be displayed when the board updates to signify who's current turn it is.
-        playerindicator = '*';
+        if(computerStart != true){
+            playerindicator = '*';
+            printBoard();
+            playerMove();
 
-        printBoard();
-        playerMove();
+        }
+        
         
         //assigning the returned value of the called function 'check Winner' to the character variable 'winner'
         winner = checkWinner();
@@ -169,11 +183,13 @@ void printBoard(){
     c = 0;
     //displays title along with player and computer with a designator of who's move it is currently
     gameTitle();
-    printf(ANSI_COLOR_RED);
-    printf("PLAYER1: ");
+    playercolour();
+    //printf(ANSI_COLOR_RED);
+    //printf("PLAYER1: ");
     pDesignator();
-    printf(ANSI_COLOR_GREEN);
-    printf("COMPUTER: ");
+    computercolour();
+    // printf(ANSI_COLOR_GREEN);
+    // printf("COMPUTER: ");
     cDesignator();
 
     //row 1 display
@@ -198,6 +214,26 @@ void printBoard(){
     runPIC();
 
     printf("\n");
+}
+void playercolour(){
+    if (PLAYER == 'X'){
+        printf(ANSI_COLOR_RED);
+    }
+    else{
+        printf(ANSI_COLOR_GREEN);
+    }
+    printf("PLAYER: ");
+
+}
+void computercolour(){
+    if(COMPUTER == 'X'){
+        printf(ANSI_COLOR_RED);
+    }
+    else{
+        printf(ANSI_COLOR_GREEN);
+    }
+    printf("COMPUTER: ");
+
 }
 void runPIC(){
 
@@ -263,6 +299,7 @@ void playerMove(){
 }
 void computerMove(){
 
+    computerStart = false;
     //creates a seed based on current time
     srand(time(0));
 
@@ -373,3 +410,96 @@ void playerIndicatorColour(int i, int j){
         }
     }
 }
+void playersidechoice(){
+    system("cls");
+    printf("Before we get started however...\n");
+    Sleep(2000);
+    system("cls");
+    printf("In order for this game to be a fair fight\n");
+    Sleep(1000);
+    printf("We have to decide who is playing as X's or O's\n");
+    Sleep(2000);
+    printf("With X's being the one who starts first ;)\n");
+    Sleep(2000);
+    printf("So why don't we start off with a quick game of heads or tails\n");
+    Sleep(2000);
+    system("cls");
+    headsOrTails();
+}
+
+char headsOrTails(){
+    char decider;
+    int decidernum;
+    char coinanimation[] = {'-', '\\', '|', '/', '-', '\\', '|', '/', '-'};
+    int count = 3;
+    bool advance = false;
+    printf("^^^^^^^^^^^^^^\n");
+    printf("Heads or tails\n");
+    printf("^^^^^^^^^^^^^^\n");
+    Sleep(2000);
+    printf("\n*BEST OUT OF 1*");
+    Sleep(2000);
+    system("cls");
+    do{
+        printf("Please enter H or T for Heads or Tails: ");
+        //scanf("%*c");
+        scanf("%s", &decider);
+        decider = toupper(decider);
+        if(decider == 'H'){
+            decidernum = 0;
+            advance = true;
+        }
+        else if(decider == 'T'){
+            decidernum = 1;
+            advance = true;
+        }
+        else{
+            printf("PLEASE ENTER A VALID INPUT OF H/T!\n");
+        }
+    }while(advance != true);
+    
+    printf("A coin will now be tossed!\n");
+    Sleep(1000);
+    system("cls");
+    while (count > 0){
+    for(int i = 0; i < (sizeof(coinanimation) / sizeof(coinanimation[0])); i++){
+        printf("%c", coinanimation[i]);
+        Sleep(100);
+        system("cls");
+    }
+    count --;
+    }
+    srand(time(0));
+    int randomcoin = rand() % 2;
+    printf("***DRUM ROLL PLEASE***\n");
+    Sleep(2000);
+    if (randomcoin == 0){
+        printf("IT'S HEADS\n");
+        Sleep(1000);
+
+    }
+    else{
+        printf("IT'S TAILS!\n");
+        Sleep(1000);
+    }
+    if(randomcoin == decidernum){
+        printf("PLAYER WINS!\n");
+        Sleep(2000);
+        printf("THAT MEANS YOU GET TO GO FIRST!!!");
+        Sleep(2000);
+        PLAYER = 'X';
+        COMPUTER = 'O';
+    }
+    else{
+        printf("ROTTEN LUCK COMPUTER WINS!");
+        Sleep(2000);
+        printf("That means you are second :(");
+        Sleep(2000);
+        COMPUTER = 'X';
+        PLAYER = 'O';
+        computerStart = true;
+    }
+
+    return decider;
+}
+
