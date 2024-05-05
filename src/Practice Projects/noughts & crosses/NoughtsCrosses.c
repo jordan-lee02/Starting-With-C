@@ -49,6 +49,19 @@ void runPIC();
 char replay(char);
 void playersidechoice();
 char headsOrTails();
+void gameRun();
+
+
+int main(){
+
+    //Calls the function to start the game
+    gameRun();
+
+
+
+
+    return 0;
+}
 
 //This is the main function of the game where all other functions are called originally from to play noughts & crosses
 void gameRun(){
