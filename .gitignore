@@ -3,7 +3,5 @@
 **/src/*.exe
 **/src/**/*.exe
 Starting With C.code-workspace
-src/practice projects/test/src/main.o
 src/practice projects/test/.vscode/launch.json
 src/practice projects/test/.vscode/tasks.json
-src/practice projects/test/src/main.d
