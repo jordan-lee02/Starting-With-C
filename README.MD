@@ -3,7 +3,7 @@
  
 # Getting Started With The C Programming Language
 
-##About
+## About
  
 This repository is not a single project, however is being used as an area to store a collection of multiple C files each demonstrating basic examples of different operations and fundamentals of the C programming language.
 Feel free to use these examples to help and support your own knowledge of C
