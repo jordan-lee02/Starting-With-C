@@ -6,7 +6,23 @@
 This repository is not a single project, however is being used as an area to store a collection of multiple C files each demonstrating basic examples of different operations and fundamentals of the C programming language.
 
 ## [Basic Examples Of C](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C)
+
 Inside this folder contains multiple basic syntax examples showcasing operations and functions using C.
 
+For a quick link to each of the examples, please refer to the list below:
+- [Arrays](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/arrays)
+- [Basic Multiple Funtcions Examples](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/basic%20examples%20of%20multiple%20operations)
+- [Comments](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/comments)
+- [Enums](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/enums)
+- [Functions](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/functions)
+- ["Hello World"](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/hello%20world)
+- [If, Else & Else If Statements](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/if%2Celse%2Celse%20if%20statements)
+- [Loops](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/loops)
+- [Operators](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/operators)
+- [Pointers](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/pointers)
+- [Random Numbers](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/random%20numbers)
+
+
 ## [Practice Projects](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/Practice%20Projects)
+
 This contains a few real-life examples of ways that operations in C can be used, combining multiple of the examples inside the previous folder.
