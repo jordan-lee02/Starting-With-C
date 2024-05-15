@@ -31,3 +31,8 @@ For a quick link to each of the examples, please refer to the list below:
 ## [Practice Projects](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/Practice%20Projects)
 
 This contains a few real-life examples of ways that operations in C can be used, combining multiple of the examples inside the previous folder.
+Current projects are listed below:
+- [Calculator Program](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/Practice%20Projects/Calculator%20Program)
+- [Number Guessing Game](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/Practice%20Projects/Number%20Guessing%20Game)
+- [Noughts & Crosses](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/Practice%20Projects/noughts%20%26%20crosses)
+
