@@ -3,8 +3,10 @@
  
 # Getting Started With The C Programming Language
  
-
-
 This repository is not a single project, however is being used as an area to store a collection of multiple C files each demonstrating basic examples of different operations and fundamentals of the C programming language.
 
-There is also a folder that contains some practice mini projects that I have worked on that include multiple operations and fundamentals alongisde each other, to acomplish more complex tasks.
+## [Basic Examples Of C](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C)
+Inside this folder contains multiple basic syntax examples showcasing operations and functions using C.
+
+## [Practice Projects](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/Practice%20Projects)
+This contains a few real-life examples of ways that operations in C can be used, combining multiple of the examples inside the previous folder.
