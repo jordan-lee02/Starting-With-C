@@ -2,8 +2,11 @@
  <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" alt="drawing" width="150"/> 
  
 # Getting Started With The C Programming Language
+
+##About
  
 This repository is not a single project, however is being used as an area to store a collection of multiple C files each demonstrating basic examples of different operations and fundamentals of the C programming language.
+Feel free to use these examples to help and support your own knowledge of C
 
 ## [Basic Examples Of C](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C)
 
