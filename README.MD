@@ -21,7 +21,12 @@ For a quick link to each of the examples, please refer to the list below:
 - [Operators](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/operators)
 - [Pointers](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/pointers)
 - [Random Numbers](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/random%20numbers)
-
+- [Reading And Writing Numbers](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/reading%20and%20writing%20files)
+- [Strings](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/strings)
+- [Structs](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/structs)
+- [Switch Statements](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/switch%20statements)
+- [User Input](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/user%20input)
+- [Variables](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/basic%20examples%20of%20parts%20of%20C/variables)
 
 ## [Practice Projects](https://github.com/jordan-lee02/Starting-With-C/tree/main/src/Practice%20Projects)
 
